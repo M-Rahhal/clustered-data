@@ -16,3 +16,44 @@ The Deals Application is a Spring Boot application designed to manage financial 
 - **Maven**
 - **Docker** (for running the application and MySQL in containers)
 - **MySQL** (configured through Docker)
+
+## Running the application
+## Build the Application
+  **./mvnw clean package**
+
+## Run the Application with Docker
+  **docker-compose up --build**
+
+## Usage
+## API Endpoints:
+    **Endpoint: POST /api/deals** 
+    **Request body** 
+    {
+        "deal-id": 1,
+        "from-currency": "USD",
+        "to-currency": "EUR",
+        "deal-time-stamp": "2024-08-01T12:00:00",
+        "deal-amount": 1000.00
+    }
+
+## Custom Validations
+  **Unique Deal ID:** Ensures the deal ID is unique in the database.
+  **Currency Code:** Validates that the currency code is one of the predefined codes.
+  **Timestamp:** Validates that the timestamp adheres to acceptable formats.
+
+## Exception Handling
+  The application features a global exception handler that catches and returns appropriate HTTP   error responses for different types of exceptions.
+
+## Logging
+  **HTTP Interceptors:** Log incoming requests and responses.
+  **Aspects:** Log method execution details and arguments.
+
+## Testing
+  Unit tests are provided for:
+    **Custom validators**
+    **Service layer**
+    **Controller layer**
+
+    
+
+  
