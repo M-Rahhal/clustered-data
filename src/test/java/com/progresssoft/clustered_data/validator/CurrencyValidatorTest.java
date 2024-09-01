@@ -9,10 +9,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@ExtendWith(MockitoExtension.class)
 public class CurrencyValidatorTest {
 
-    @InjectMocks
     private CurrencyValidator currencyValidator;
 
     @BeforeEach

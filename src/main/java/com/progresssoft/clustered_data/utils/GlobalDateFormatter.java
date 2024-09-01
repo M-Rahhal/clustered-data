@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class GlobalDateFormatter {
+
     private static final DateTimeFormatter[] FORMATTERS = {
             DateTimeFormatter.ISO_LOCAL_DATE_TIME,
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"),
@@ -16,12 +17,19 @@ public class GlobalDateFormatter {
     };
 
 
-    public static LocalDateTime format(String dateAsString){
-        for (DateTimeFormatter formatter: FORMATTERS){
-            try{
-                return LocalDateTime.parse(dateAsString , formatter);
-            }catch(DateTimeParseException e){}
+    public static LocalDateTime format(String dateAsString) throws DateTimeParseException {
+
+        if (dateAsString == null || dateAsString.isEmpty()) {
+            throw new DateTimeParseException("Could not parse null or empty date !", "", 0);
         }
-        throw new IllegalArgumentException("The date provided is not accepted!");
+        for (DateTimeFormatter formatter: FORMATTERS){
+            try {
+                return LocalDateTime.parse(dateAsString, formatter);
+            }catch (DateTimeParseException e){
+                //Log some info
+            }
+        }
+
+        throw new DateTimeParseException("Could not parse date: " + dateAsString, dateAsString, 0);
     }
 }

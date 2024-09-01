@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="Mohammad-Rahhal">
+        <createTable tableName="deals">
+
+            <column name="deal_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+
+            <column name="from_currency" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="to_currency" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="deal_time_stamp" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="deal_amount" type="double"/>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

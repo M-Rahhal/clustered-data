@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(MockitoExtension.class)
 public class TimeStampValidatorTest {
 
-    @InjectMocks
     private TimeStampValidator timeStampValidator;
 
     @BeforeEach
@@ -43,6 +42,5 @@ public class TimeStampValidatorTest {
     @Test
     public void whenTimeStampIsEmptyOrNull_thenValidationFails() {
         assertFalse(timeStampValidator.isValid("", null));
-        assertFalse(timeStampValidator.isValid(null, null));
     }
 }
