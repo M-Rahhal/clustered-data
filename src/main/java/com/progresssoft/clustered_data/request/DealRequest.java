@@ -13,6 +13,6 @@ public record DealRequest(
         @JsonProperty("from-currency") @Currency @NotNull String fromCurrency,
         @JsonProperty("to-currency") @Currency @NotNull String toCurrency,
         @JsonProperty("deal-time-stamp") @ValidTimeStamp @NotNull String dealTimeStamp,
-        @JsonProperty("deal-amount") @Positive @NotNull Double dealAmount
+        @JsonProperty("deal-amount") @Positive @NotNull Double dealAmountss
 ) {
 }
